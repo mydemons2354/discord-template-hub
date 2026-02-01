@@ -13,9 +13,12 @@
 
 body {
     margin: 0;
-    font-family: var(--minecraft-font); /* Apply Minecraft font globally */
+    font-family: var(--minecraft-font);
     background-color: var(--background-dark);
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- Header Bar --- */
@@ -36,14 +39,16 @@ body {
 #hamburger-menu-btn {
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
     color: var(--text-color);
+    font-size: 28px; 
+    line-height: 1;
+    padding: 0;
 }
 
 .header-logo {
     margin-left: 15px;
-    height: 40px; /* Adjust height as needed */
+    height: 40px;
 }
 
 /* --- Sidebar Menu --- */
@@ -70,7 +75,7 @@ body {
     margin: 0;
 }
 
-.menu-items li a, .menu-items li button {
+.menu-items li a {
     display: block;
     padding: 12px 20px;
     text-decoration: none;
@@ -84,7 +89,7 @@ body {
     font-family: var(--minecraft-font);
 }
 
-.menu-items li a:hover, .menu-items li button:hover {
+.menu-items li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -114,6 +119,7 @@ body {
 
 /* --- Main Content --- */
 .main-content {
+    flex: 1;
     padding: 80px 20px 20px 20px;
 }
 
@@ -137,6 +143,16 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     text-align: center;
     border: 1px solid var(--primary-color);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+}
+
+.staff-card:hover, .staff-card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.5);
+    outline: none;
 }
 
 .staff-image-wrapper {
@@ -170,3 +186,15 @@ h3 {
     color: #ccc;
 }
 
+/* --- Footer --- */
+.main-footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #666;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-dark);
+    width: 100%;
+    box-sizing: border-box;
+}

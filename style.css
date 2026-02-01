@@ -149,9 +149,14 @@ body {
     display: block;
 }
 
-.staff-card:hover, .staff-card:focus {
-    transform: translateY(-5px);
+/* Hover effect for staff cards (only on hover) */
+.staff-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly */
     box-shadow: 0 8px 12px rgba(0,0,0,0.5);
+}
+
+/* Ensure no outline when clicked/focused via keyboard */
+.staff-card:focus {
     outline: none;
 }
 

@@ -1,0 +1,172 @@
+/* Import Minecraft font as web font */
+@import url('https://fonts.cdnfonts.com');
+
+:root {
+    --primary-color: #925dcd; /* Purple from the image */
+    --background-dark: #191919;
+    --card-bg: #301934; /* Darker purple for cards */
+    --text-color: #ffffff;
+    --roblox-blue: #007acc;
+    --border-color: #555;
+    --minecraft-font: 'Minecraft', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--minecraft-font); /* Apply Minecraft font globally */
+    background-color: var(--background-dark);
+    color: var(--text-color);
+}
+
+/* --- Header Bar --- */
+.main-header {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 60px;
+    background-color: var(--background-dark);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+#hamburger-menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.header-logo {
+    margin-left: 15px;
+    height: 40px; /* Adjust height as needed */
+}
+
+/* --- Sidebar Menu --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--card-bg);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: left 0.3s ease;
+    z-index: 200;
+    overflow-y: auto;
+}
+
+.sidebar-menu.active {
+    left: 0;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 20px 0 0 0;
+    margin: 0;
+}
+
+.menu-items li a, .menu-items li button {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: var(--minecraft-font);
+}
+
+.menu-items li a:hover, .menu-items li button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-icon {
+    margin-right: 15px;
+    width: 20px;
+}
+
+/* --- Overlay --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- Main Content --- */
+.main-content {
+    padding: 80px 20px 20px 20px;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Staff Team Styling (Image Mimicry) --- */
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.staff-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid var(--primary-color);
+}
+
+.staff-image-wrapper {
+    background-color: var(--background-dark);
+    border-radius: 50%;
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.staff-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+h3 {
+    margin: 10px 0 5px 0;
+    color: var(--text-color);
+}
+
+.role {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 0.7rem;
+    color: #ccc;
+}
+

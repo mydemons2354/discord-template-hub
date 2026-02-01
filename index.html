@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrion Network</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Using Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    <!-- Include the Tally script for popups -->
     <script async src="https://tally.so/widgets/embed.js"></script>
-    <!-- Link to the Minecraft style font -->
     <link href="https://fonts.cdnfonts.com" rel="stylesheet">
 </head>
 <body>
 
     <!-- Header/Home Bar -->
     <header class="main-header">
-            <button id="hamburger-menu-btn" aria-label="Open Menu">
-            ☰
-            </button>
+        <button id="hamburger-menu-btn" aria-label="Open Menu">
+         ☰
         </button>
         <img src="logo.png" alt="Astrion Logo" class="header-logo">
     </header>
@@ -26,11 +22,11 @@
     <!-- Sidebar Menu -->
     <nav class="sidebar-menu" id="sidebar-menu">
         <ul class="menu-items">
-            <li><a href="#"><i class="fas fa-home menu-icon"></i> Home</a></li>
-            <li><button id="apply-btn"><i class="fas fa-file-signature menu-icon"></i> Apply</button></li>
-            <li><a href="#"><i class="fas fa-users menu-icon"></i> Staff Team</a></li>
-            <li><a href="#"><i class="fas fa-cog menu-icon"></i> Settings</a></li>
-            <li><a href="#"><i class="fas fa-question-circle menu-icon"></i> Help & Safety</a></li>
+            <li><a href="index.html"><i class="fas fa-home menu-icon"></i> Home</a></li>
+            <li><a href="apply.html" id="apply-btn-link"><i class="fas fa-file-signature menu-icon"></i> Apply</a></li>
+            <li><a href="staff.html"><i class="fas fa-users menu-icon"></i> Staff Team</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog menu-icon"></i> Settings</a></li>
+            <li><a href="help.html"><i class="fas fa-question-circle menu-icon"></i> Help & Safety</a></li>
         </ul>
     </nav>
 
@@ -45,36 +41,39 @@
         <!-- Staff Team Section -->
         <h2 class="section-title">Our Team</h2>
         <div class="staff-container" id="staff-container">
-            <!-- Staff cards are static HTML now -->
-            <div class="staff-card">
+            <a href="#" class="staff-card" aria-label="View Admin_User Profile">
                 <div class="staff-image-wrapper">
                     <img src="images/staff1.png" alt="Staff Member 1" class="staff-avatar">
                 </div>
                 <h3>Admin_User</h3>
                 <p class="role">Founder</p>
                 <p class="bio">The creator and visionary behind Astrion.</p>
-            </div>
-            <div class="staff-card">
+            </a>
+            <a href="#" class="staff-card" aria-label="View Mod_Helper Profile">
                 <div class="staff-image-wrapper">
                     <img src="images/staff2.png" alt="Staff Member 2" class="staff-avatar">
                 </div>
                 <h3>Mod_Helper</h3>
                 <p class="role">Co-owner</p>
                 <p class="bio">Helps manage the day-to-day operations and builds.</p>
-            </div>
-            <div class="staff-card">
+            </a>
+            <a href="#" class="staff-card" aria-label="View Builder_Steve Profile">
                 <div class="staff-image-wrapper">
                     <img src="images/staff3.png" alt="Staff Member 3" class="staff-avatar">
                 </div>
                 <h3>Builder_Steve</h3>
                 <p class="role">Builder</p>
                 <p class="bio">Master of architecture and world design.</p>
-            </div>
+            </a>
         </div>
     </main>
     
+    <!-- Footer/Copyright -->
+    <footer class="main-footer">
+        © 2026 Astrion Network. All rights reserved.
+    </footer>
+
     <!-- JavaScript file link -->
     <script src="script.js"></script>
 </body>
 </html>
-

@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for the "Apply" button to open the Tally form popup
     applyBtn.addEventListener('click', () => {
         // You need to replace 'YOUR_FORM_ID' with the actual ID from your Tally form share link.
-        const formId = 'YOUR_FORM_ID'; 
-        if (typeof Tally !== 'undefined' && formId !== 'YOUR_FORM_ID') {
+        const formId = 'rjP6Xo'; 
+        if (typeof Tally !== 'undefined' && formId !== 'rjP6Xo') {
             Tally.open(formId, {
                 width: 500,
                 hideTitle: true,
                 autoClose: true
             });
-        } else if (formId === 'YOUR_FORM_ID') {
+        } else if (formId === 'rjP6Xo') {
             alert('Please update the YOUR_FORM_ID in script.js with your actual Tally form ID.');
         } else {
             alert('Tally script not loaded.');

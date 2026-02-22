@@ -1,205 +1,268 @@
-/* Import Minecraft font as web font */
-@import url('https://fonts.cdnfonts.com');
-
 :root {
-    --primary-color: #925dcd; /* Purple from the image */
-    --background-dark: #191919;
-    --card-bg: #301934; /* Darker purple for cards */
-    --text-color: #ffffff;
-    --roblox-blue: #007acc;
-    --border-color: #555;
-    --minecraft-font: 'Minecraft', sans-serif;
+    --bg: #262b34;
+    --panel: #2f3642;
+    --panel-alt: #343c4a;
+    --panel-border: #3c4657;
+    --text: #f2f4f8;
+    --muted: #b7c0d1;
+    --blue: #1f90ff;
+    --cyan: #17b7d5;
+    --green: #2fc45f;
+    --danger: #e15a5a;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: var(--minecraft-font);
-    background-color: var(--background-dark);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(180deg, #1c2129 0%, var(--bg) 28%, #2b313d 100%);
 }
 
-/* --- Header Bar --- */
-.main-header {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    height: 60px;
-    background-color: var(--background-dark);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+.topbar {
+    background: var(--blue);
+    padding: 1rem 0;
+    border-bottom: 1px solid #57abff;
 }
 
-#hamburger-menu-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 28px; 
-    line-height: 1;
-    padding: 0;
-}
-
-.header-logo {
-    margin-left: 15px;
-    height: 40px;
-}
-
-/* --- Sidebar Menu --- */
-.sidebar-menu {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: var(--card-bg);
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-    transition: left 0.3s ease;
-    z-index: 200;
-    overflow-y: auto;
-}
-
-.sidebar-menu.active {
-    left: 0;
-}
-
-.menu-items {
-    list-style: none;
-    padding: 20px 0 0 0;
-    margin: 0;
-}
-
-.menu-items li a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: var(--text-color);
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    box-sizing: border-box;
-    font-family: var(--minecraft-font);
-}
-
-.menu-items li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.menu-icon {
-    margin-right: 15px;
-    width: 20px;
-}
-
-/* --- Overlay --- */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 150;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* --- Main Content --- */
+.topbar-inner,
 .main-content {
-    flex: 1;
-    padding: 80px 20px 20px 20px;
+    width: min(980px, 92vw);
+    margin: 0 auto;
 }
 
-.section-title {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.topbar-inner h1 {
+    margin: 0;
+    font-size: clamp(1.3rem, 4vw, 2rem);
 }
 
-/* --- Staff Team Styling (Image Mimicry) --- */
-.staff-container {
+.topbar-inner p {
+    margin: 0.3rem 0 0;
+    color: #ddedff;
+}
+
+.main-content {
+    padding: 1rem 0 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 1rem;
 }
 
-.staff-card {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    text-align: center;
-    border: 1px solid var(--primary-color);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
+.panel {
+    background: linear-gradient(180deg, var(--panel), var(--panel-alt));
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 1rem;
 }
 
-/* Hover effect for staff cards (only on hover) */
-.staff-card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
-    box-shadow: 0 8px 12px rgba(0,0,0,0.5);
-}
-
-/* Ensure no outline when clicked/focused via keyboard */
-.staff-card:focus {
-    outline: none;
-}
-
-.staff-image-wrapper {
-    background-color: var(--background-dark);
-    border-radius: 50%;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.staff-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+.panel h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
 }
 
 h3 {
-    margin: 10px 0 5px 0;
-    color: var(--text-color);
+    margin: 0;
 }
 
-.role {
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
+.muted {
+    color: var(--muted);
+    margin: 0.5rem 0 0;
 }
 
-.bio {
-    font-size: 0.7rem;
-    color: #ccc;
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.9rem;
 }
 
-/* --- Footer --- */
-.main-footer {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.7rem;
-    color: #666;
-    border-top: 1px solid var(--border-color);
-    background-color: var(--background-dark);
+.stacked-form {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.8rem;
+    border: 1px solid #475366;
+    border-radius: 10px;
+    background: rgba(15, 20, 28, 0.35);
+}
+
+.stacked-form h3 {
+    margin-bottom: 0.2rem;
+}
+
+label {
+    font-size: 0.93rem;
+    color: var(--muted);
+}
+
+input {
     width: 100%;
-    box-sizing: border-box;
+    background: #121721;
+    border: 1px solid #4b5870;
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.7rem 0.8rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+button,
+.template-link {
+    border: none;
+    border-radius: 9px;
+    padding: 0.68rem 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button {
+    background: var(--blue);
+    color: #fff;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid #8fa5cd;
+    color: #dbe8ff;
+}
+
+.danger-btn {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: #ffbcbc;
+}
+
+.form-message {
+    min-height: 1.3rem;
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+}
+
+.form-message.success {
+    color: #88e4a9;
+}
+
+.form-message.error {
+    color: #ff9d9d;
+}
+
+.session-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    border: 1px solid #4f5d75;
+    background: #253044;
+    border-radius: 9px;
+    padding: 0.75rem;
+    margin-bottom: 0.8rem;
+}
+
+.templates-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.template-card {
+    background: #313944;
+    border: 1px solid #475165;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-main {
+    padding: 1rem;
+}
+
+.template-name {
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+}
+
+.template-desc {
+    color: #d5ddeb;
+    margin: 0.65rem 0 0.8rem;
+}
+
+.badge-row {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.usage-badge,
+.info-badge {
+    display: inline-block;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.usage-badge {
+    background: var(--green);
+    color: #fff;
+}
+
+.info-badge {
+    background: var(--cyan);
+    color: #eaffff;
+}
+
+.creator-pill {
+    margin: 0.75rem 0 0;
+    background: #5f6b7e;
+    border-radius: 999px;
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+}
+
+.action-row {
+    margin-top: 0.85rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.template-link {
+    text-decoration: none;
+    color: #fff;
+    background: #117df8;
+}
+
+.detail-section {
+    border-top: 1px solid #475165;
+    padding: 0.8rem 1rem 1rem;
+}
+
+.detail-section h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+ul {
+    margin: 0;
+    padding-left: 1rem;
+    color: #d6deee;
+}
+
+.empty-state {
+    border: 1px dashed #5f6a7f;
+    color: var(--muted);
+    border-radius: 9px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
 }

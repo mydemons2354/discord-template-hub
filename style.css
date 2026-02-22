@@ -1,205 +1,207 @@
-/* Import Minecraft font as web font */
-@import url('https://fonts.cdnfonts.com');
-
 :root {
-    --primary-color: #925dcd; /* Purple from the image */
-    --background-dark: #191919;
-    --card-bg: #301934; /* Darker purple for cards */
-    --text-color: #ffffff;
-    --roblox-blue: #007acc;
-    --border-color: #555;
-    --minecraft-font: 'Minecraft', sans-serif;
+    --bg: #0f1115;
+    --panel: #1a1f29;
+    --panel-border: #303a49;
+    --text: #e8edf5;
+    --muted: #9faac0;
+    --primary: #7289da;
+    --success: #7ad67a;
+    --error: #ff7f7f;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: var(--minecraft-font);
-    background-color: var(--background-dark);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at top, #151a25 0, var(--bg) 50%);
+    color: var(--text);
     min-height: 100vh;
 }
 
-/* --- Header Bar --- */
+.main-header,
+.main-content {
+    width: min(980px, 92vw);
+    margin: 0 auto;
+}
+
 .main-header {
+    padding: 2.25rem 0 1.5rem;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.subtitle {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+}
+
+.main-content {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.panel {
+    background: linear-gradient(180deg, #1d2330, var(--panel));
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+.panel h2 {
+    margin: 0 0 0.6rem;
+}
+
+.muted {
+    color: var(--muted);
+    margin-top: 0;
+}
+
+.template-form {
+    margin-top: 1rem;
+}
+
+.template-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.input-row {
     display: flex;
-    align-items: center;
-    padding: 0 15px;
-    height: 60px;
-    background-color: var(--background-dark);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    gap: 0.6rem;
+    flex-wrap: wrap;
 }
 
-#hamburger-menu-btn {
-    background: none;
+input {
+    flex: 1;
+    min-width: 280px;
+    background: #0f131a;
+    border: 1px solid #384255;
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.72rem 0.85rem;
+}
+
+button {
     border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.72rem 1rem;
     cursor: pointer;
-    color: var(--text-color);
-    font-size: 28px; 
-    line-height: 1;
-    padding: 0;
+    font-weight: 700;
 }
 
-.header-logo {
-    margin-left: 15px;
-    height: 40px;
+button:hover {
+    filter: brightness(1.08);
 }
 
-/* --- Sidebar Menu --- */
-.sidebar-menu {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: var(--card-bg);
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-    transition: left 0.3s ease;
-    z-index: 200;
-    overflow-y: auto;
+.ghost-btn {
+    background: transparent;
+    border: 1px solid #4a556b;
+    color: var(--muted);
+    font-weight: 600;
 }
 
-.sidebar-menu.active {
-    left: 0;
+.form-message {
+    min-height: 1.4rem;
+    margin: 0.7rem 0 0;
+    color: var(--muted);
 }
 
-.menu-items {
-    list-style: none;
-    padding: 20px 0 0 0;
+.form-message.success {
+    color: var(--success);
+}
+
+.form-message.error {
+    color: var(--error);
+}
+
+.templates-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.templates-list {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.template-card {
+    border: 1px solid #3c465d;
+    border-radius: 12px;
+    padding: 0.9rem;
+    background: #121722;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.template-name {
     margin: 0;
 }
 
-.menu-items li a {
-    display: block;
-    padding: 12px 20px;
+.template-link {
+    color: #9fb1ff;
     text-decoration: none;
-    color: var(--text-color);
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    box-sizing: border-box;
-    font-family: var(--minecraft-font);
+    font-weight: 600;
 }
 
-.menu-items li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.card-meta {
+    display: flex;
+    gap: 0.9rem;
+    color: var(--muted);
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
 }
 
-.menu-icon {
-    margin-right: 15px;
-    width: 20px;
-}
-
-/* --- Overlay --- */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 150;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* --- Main Content --- */
-.main-content {
-    flex: 1;
-    padding: 80px 20px 20px 20px;
-}
-
-.section-title {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-/* --- Staff Team Styling (Image Mimicry) --- */
-.staff-container {
+.layout-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+    margin-top: 0.85rem;
 }
 
-.staff-card {
-    background-color: var(--card-bg);
-    padding: 20px;
+.layout-grid h4 {
+    margin: 0 0 0.4rem;
+    font-size: 0.92rem;
+}
+
+.layout-grid ul {
+    margin: 0;
+    padding-left: 1rem;
+    color: #d4dcee;
+}
+
+.empty-state {
+    border: 1px dashed #455168;
+    color: var(--muted);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 1rem;
     text-align: center;
-    border: 1px solid var(--primary-color);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
-}
-
-/* Hover effect for staff cards (only on hover) */
-.staff-card:hover {
-    transform: translateY(-5px); /* Lift the card slightly */
-    box-shadow: 0 8px 12px rgba(0,0,0,0.5);
-}
-
-/* Ensure no outline when clicked/focused via keyboard */
-.staff-card:focus {
-    outline: none;
-}
-
-.staff-image-wrapper {
-    background-color: var(--background-dark);
-    border-radius: 50%;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.staff-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-h3 {
-    margin: 10px 0 5px 0;
-    color: var(--text-color);
-}
-
-.role {
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-}
-
-.bio {
-    font-size: 0.7rem;
-    color: #ccc;
-}
-
-/* --- Footer --- */
-.main-footer {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.7rem;
-    color: #666;
-    border-top: 1px solid var(--border-color);
-    background-color: var(--background-dark);
-    width: 100%;
-    box-sizing: border-box;
 }

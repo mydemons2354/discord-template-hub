@@ -3,77 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrion Network</title>
+    <title>Discord Template Hub</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    <script async src="https://tally.so/widgets/embed.js"></script>
-    <link href="https://fonts.cdnfonts.com" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Header/Home Bar -->
     <header class="main-header">
-        <button id="hamburger-menu-btn" aria-label="Open Menu">
-         ☰
-        </button>
-        <img src="logo.png" alt="Astrion Logo" class="header-logo">
+        <div>
+            <p class="eyebrow">Community Project</p>
+            <h1>Discord Template Hub</h1>
+        </div>
+        <p class="subtitle">Post and explore Discord server templates.</p>
     </header>
 
-    <!-- Sidebar Menu -->
-    <nav class="sidebar-menu" id="sidebar-menu">
-        <ul class="menu-items">
-            <li><a href="index.html"><i class="fas fa-home menu-icon"></i> Home</a></li>
-            <li><a href="#tally-open=rjP6Xo&tally-emoji-text=👋&tally-emoji-animation=wave">Apply</a></li>
-            <li><a href="#"><i class="fas fa-users menu-icon"></i> Staff Team</a></li>
-            <li><a href="settings.html"><i class="fas fa-cog menu-icon"></i> Settings</a></li>
-            <li><a href="help.html"><i class="fas fa-question-circle menu-icon"></i> Help & Safety</a></li>
-        </ul>
-    </nav>
-
-    <!-- Overlay for when the menu is open -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Main Content Area -->
     <main class="main-content">
-        <h1>Welcome to the Homepage!</h1>
-        <p>This is the main content area of your site.</p>
+        <section class="panel">
+            <h2>Post a server template</h2>
+            <p class="muted">
+                Paste a Discord template link (for example: <code>https://discord.new/abc123</code>). We will fetch
+                the template name, channels, and roles automatically.
+            </p>
 
-        <!-- Staff Team Section -->
-        <h2 class="section-title">Our Team</h2>
-        <div class="staff-container" id="staff-container">
-            <a href="#" class="staff-card" aria-label="View Admin_User Profile">
-                <div class="staff-image-wrapper">
-                    <img src="images/staff1.png" alt="Staff Member 1" class="staff-avatar">
+            <form id="template-form" class="template-form">
+                <label for="template-link">Discord template link</label>
+                <div class="input-row">
+                    <input id="template-link" name="template-link" type="url" placeholder="https://discord.new/..." required>
+                    <button type="submit">Add template</button>
                 </div>
-                <h3>Admin_User</h3>
-                <p class="role">Founder</p>
-                <p class="bio">The creator and visionary behind Astrion.</p>
-            </a>
-            <a href="#" class="staff-card" aria-label="View Mod_Helper Profile">
-                <div class="staff-image-wrapper">
-                    <img src="images/staff2.png" alt="Staff Member 2" class="staff-avatar">
-                </div>
-                <h3>Mod_Helper</h3>
-                <p class="role">Co-owner</p>
-                <p class="bio">Helps manage the day-to-day operations and builds.</p>
-            </a>
-            <a href="#" class="staff-card" aria-label="View Builder_Steve Profile">
-                <div class="staff-image-wrapper">
-                    <img src="images/staff3.png" alt="Staff Member 3" class="staff-avatar">
-                </div>
-                <h3>Builder_Steve</h3>
-                <p class="role">Builder</p>
-                <p class="bio">Master of architecture and world design.</p>
-            </a>
-        </div>
+            </form>
+
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <div class="templates-heading">
+                <h2>Posted templates</h2>
+                <button id="clear-templates" class="ghost-btn" type="button">Clear all</button>
+            </div>
+            <div id="templates-list" class="templates-list"></div>
+        </section>
     </main>
-    
-    <!-- Footer/Copyright -->
-    <footer class="main-footer">
-        © 2026 Astrion Network. All rights reserved.
-    </footer>
 
-    <!-- JavaScript file link -->
+    <template id="template-card">
+        <article class="template-card">
+            <div class="card-header">
+                <h3 class="template-name"></h3>
+                <a class="template-link" target="_blank" rel="noopener noreferrer">Open template</a>
+            </div>
+            <div class="card-meta">
+                <span class="template-code"></span>
+                <span class="template-usage"></span>
+            </div>
+            <div class="layout-grid">
+                <section>
+                    <h4>Channels</h4>
+                    <ul class="channels-list"></ul>
+                </section>
+                <section>
+                    <h4>Roles</h4>
+                    <ul class="roles-list"></ul>
+                </section>
+            </div>
+        </article>
+    </template>
+
     <script src="script.js"></script>
 </body>
 </html>

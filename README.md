@@ -1,21 +1,24 @@
-# Discord Template Hub
+# Discord Templates Hub
 
-Simple front-end website where people can post Discord server templates by URL.
+A front-end website where users can sign up, log in, and post Discord server template links.
 
 ## Features
 
-- Add a Discord template link (`discord.new/...` or `discord.com/template/...`).
+- Sign up and login flow using browser localStorage.
+- Only logged-in users can post templates.
 - Fetch template data from Discord API.
-- Show template name, channel list, and role list.
-- Save posted templates in browser `localStorage`.
-- Clear all saved templates with one click.
+- Show template name, usage count, channels, roles, and the user who posted it.
+- Per-template delete button shown only to the template owner (other users cannot delete it from the UI).
 
 ## Run locally
-
-Open `index.html` directly, or serve with:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Then visit `http://localhost:4173`.
+Then open `http://localhost:4173`.
+
+## Notes
+
+This is a client-only demo. Authentication and permissions are enforced in browser JavaScript/localStorage.
+For production security, use a real backend/database and server-side auth.

@@ -4,7 +4,7 @@ A front-end website where users can sign up, log in, and post Discord server tem
 
 ## Features
 
-- Sign up and login flow using browser localStorage.
+- Sign up and login
 - Only logged-in users can post templates.
 - Fetch template data from Discord API.
 - Show template name, usage count, channels, roles, and the user who posted it.
